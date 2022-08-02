@@ -1,11 +1,5 @@
 import { Injectable } from '@nestjs/common';
-
-export type ReqUser = {
-  username: string;
-  userId: string;
-  iat: number;
-  exp: number;
-};
+import { ReqUser } from './auth/jwt-auth.guard';
 
 @Injectable()
 export class AppService {
