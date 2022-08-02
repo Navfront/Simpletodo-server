@@ -7,6 +7,8 @@ import {
   Post,
   Put,
   UseGuards,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { TodosService } from './todos.service';
 import { AddTodo } from './dto/add-todo.dto';
@@ -22,6 +24,7 @@ export class TodosController {
 
   @ApiOperation({ summary: 'Получение всех ToDo юзера' })
   @UseGuards(JwtAuthGuard)
+  @UsePipes(ValidationPipe)
   @Get('/:id')
   getTodosByUserId(@Param('id') id: string) {
     console.log(id);
@@ -30,6 +33,7 @@ export class TodosController {
 
   @ApiOperation({ summary: 'Создание ToDo' })
   @UseGuards(JwtAuthGuard)
+  @UsePipes(ValidationPipe)
   @Post('/')
   addNewTodo(@Body() dto: AddTodo) {
     if (dto) return this.todosService.addNewTodo(dto.userId, dto.title);
@@ -37,6 +41,7 @@ export class TodosController {
 
   @ApiOperation({ summary: 'Обновление ToDo' })
   @UseGuards(JwtAuthGuard)
+  @UsePipes(ValidationPipe)
   @Put('/')
   updateTodo(@Body() dto: UpdateTodoDto) {
     if (dto) return this.todosService.updateTodo(dto.userId, dto.todo);
@@ -44,6 +49,7 @@ export class TodosController {
 
   @ApiOperation({ summary: 'Удаление ToDo' })
   @UseGuards(JwtAuthGuard)
+  @UsePipes(ValidationPipe)
   @Delete('/')
   deleteTodo(@Body() dto: DeleteTodo) {
     if (dto) return this.todosService.deleteTodo(dto.userId, dto.todoId);

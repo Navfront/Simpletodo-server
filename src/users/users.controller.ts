@@ -6,12 +6,14 @@ import {
   UseGuards,
   HttpException,
   HttpStatus,
+  UsePipes,
 } from '@nestjs/common';
 import { GetUserByLogin } from './dto/get-user-by-login.dto';
 import { UsersService } from './users.service';
 // import { CreateUserDto } from './dto/create-user.dto';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { ValidationPipe } from './../pipes/validation.pipe';
 
 @ApiTags('Users')
 @Controller('users')
