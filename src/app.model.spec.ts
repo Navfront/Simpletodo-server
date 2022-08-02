@@ -16,7 +16,7 @@ export interface User {
 const user: User = {
   userId: 'user1',
   username: 'admin',
-  password: '1337',
+  password: '$2b$05$DDP8zfsro6vNXSNtZGiZo.6wGDaA3odsenjhpm4aJCsRPilazkUsO',
   todos: [
     { todoId: 'a1', title: 'hello', isDone: false },
     { todoId: 'a2', title: 'goodbuy', isDone: true },
