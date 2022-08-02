@@ -1,2 +1,2 @@
-web: npm run start:prod
-init: npm run build
+web: npm run heroku
+
