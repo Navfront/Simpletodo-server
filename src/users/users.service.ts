@@ -4,12 +4,12 @@ import { CreateUserDto } from './dto/create-user.dto';
 
 @Injectable()
 export class UsersService {
-  getUserByLogin(login: string) {
-    return appModel.findUserByName(login);
+  async getUserByLogin(login: string) {
+    return await appModel.findUserByName(login);
   }
 
-  createUser(userData: CreateUserDto) {
-    return appModel.createUser({
+  async createUser(userData: CreateUserDto) {
+    return await appModel.createUser({
       username: userData.login,
       password: userData.password,
     });
