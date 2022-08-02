@@ -1,4 +1,4 @@
-import { Controller, Get, UseGuards } from '@nestjs/common';
+import { Controller, Get, Request, UseGuards } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { AppService } from './app.service';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
@@ -11,7 +11,7 @@ export class AppController {
   @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: 'Просто ендпоинт' })
   @Get('/')
-  greetings() {
-    return this.appService.greeting();
+  greetings(@Request() req) {
+    return this.appService.greeting(req.user);
   }
 }

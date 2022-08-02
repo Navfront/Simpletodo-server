@@ -1,10 +1,15 @@
 import { Injectable } from '@nestjs/common';
 
+export type ReqUser = {
+  username: string;
+  userId: string;
+  iat: number;
+  exp: number;
+};
+
 @Injectable()
 export class AppService {
-  private userName = 'Anonimous';
-
-  async greeting() {
-    return { message: `Hello ${this.userName}!` };
+  async greeting(user: ReqUser) {
+    return { message: `Hello ${user.username || 'Anonimous'}!` };
   }
 }
