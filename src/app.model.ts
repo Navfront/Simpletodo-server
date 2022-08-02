@@ -1,5 +1,3 @@
-import { Injectable } from '@nestjs/common';
-
 export interface Todo {
   todoId: string;
   title: string;
@@ -15,7 +13,6 @@ export interface User {
 
 let instance = null;
 
-@Injectable()
 class UsersModel {
   #users: User[];
   #idCounter: number;
@@ -40,7 +37,7 @@ class UsersModel {
     return String(++this.#idCounter);
   }
 
-  static getInstance() {
+  static getInstance(): UsersModel {
     if (!instance) {
       instance = new UsersModel();
     }
@@ -51,18 +48,18 @@ class UsersModel {
     return this.#users;
   }
 
-  async createUser(user: Omit<User, 'token' | 'userId'>) {
+  async createUser(user: Pick<User, 'username' | 'password'>) {
     const findedUser = this.#users.find((it) => it.username === user.username);
     if (findedUser) {
       return false;
     }
-    const newUser = {
+
+    const newUser: User = {
       userId: 'user' + String(++this.#idCounter),
       ...user,
+      todos: [],
     };
     this.#users.push(newUser);
-    console.log(this.#users);
-
     return newUser;
   }
 

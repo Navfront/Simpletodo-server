@@ -1,4 +1,4 @@
-import model from './users.model';
+import model from './app.model';
 
 export interface Todo {
   todoId: string;
