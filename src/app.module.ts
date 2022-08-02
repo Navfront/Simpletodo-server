@@ -9,6 +9,11 @@ import { AuthModule } from './auth/auth.module';
 @Module({
   controllers: [AppController],
   providers: [AppService],
-  imports: [ConfigModule.forRoot({ envFilePath: '.env' }), UsersModule, TodosModule, AuthModule],
+  imports: [
+    ConfigModule.forRoot({ envFilePath: '.env' }),
+    UsersModule,
+    TodosModule,
+    AuthModule,
+  ],
 })
 export class AppModule {}

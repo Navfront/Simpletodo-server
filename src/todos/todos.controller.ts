@@ -11,8 +11,9 @@ import { TodosService } from './todos.service';
 import { AddTodo } from './dto/add-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
 import { DeleteTodo } from './dto/delete-todo.dto';
-import { ApiOperation } from '@nestjs/swagger';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('ToDo')
 @Controller('todos')
 export class TodosController {
   constructor(private todosService: TodosService) {}

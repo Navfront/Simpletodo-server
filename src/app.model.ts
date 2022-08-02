@@ -23,7 +23,8 @@ class UsersModel {
       {
         userId: 'user' + this.newId,
         username: 'admin',
-        password: '1337',
+        password:
+          '$2b$05$DDP8zfsro6vNXSNtZGiZo.6wGDaA3odsenjhpm4aJCsRPilazkUsO',
         todos: [
           { todoId: 'a1', title: 'hello', isDone: false },
           { todoId: 'a2', title: 'goodbuy', isDone: true },
@@ -48,7 +49,9 @@ class UsersModel {
     return this.#users;
   }
 
-  async createUser(user: Pick<User, 'username' | 'password'>) {
+  async createUser(
+    user: Pick<User, 'username' | 'password'>,
+  ): Promise<false | User> {
     const findedUser = this.#users.find((it) => it.username === user.username);
     if (findedUser) {
       return false;
@@ -64,7 +67,8 @@ class UsersModel {
   }
 
   async findUserByName(username: string): Promise<User | undefined> {
-    return this.#users.find((user) => user.username === username);
+    const user = this.#users.find((user) => user.username === username);
+    return user;
   }
 
   async addTodo(userId: string, title: string) {
