@@ -14,7 +14,7 @@ export interface User {
 }
 
 const user: User = {
-  userId: '1',
+  userId: 'user1',
   username: 'admin',
   password: '1337',
   todos: [
@@ -48,13 +48,13 @@ describe('DataModel tests', () => {
   });
 
   test('addTodo works', async () => {
-    const res = await model.addTodo('1', 'helloWorld');
+    const res = await model.addTodo('user1', 'helloWorld');
     expect(res).toEqual(newTodo);
   });
 
   test('removeTodo works', async () => {
     const user = await model.findUserByName('admin');
-    expect(await model.removeTodo('1', 'a1')).toEqual(true);
+    expect(await model.removeTodo('user1', 'a1')).toEqual(true);
     expect(user.todos).not.toContainEqual({
       todoId: 'a1',
       title: 'hello',
@@ -63,10 +63,10 @@ describe('DataModel tests', () => {
   });
 
   test('updating works', async () => {
-    expect(await model.updateTodo('1', todoToUpdate)).toEqual(todoToUpdate);
+    expect(await model.updateTodo('user1', todoToUpdate)).toEqual(todoToUpdate);
   });
 
   test('gettingTodos works', async () => {
-    expect(await model.getTodos('1')).toEqual(gettedAll);
+    expect(await model.getTodos('user1')).toEqual(gettedAll);
   });
 });

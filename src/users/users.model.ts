@@ -24,7 +24,7 @@ class UsersModel {
     this.#idCounter = 0;
     this.#users = [
       {
-        userId: this.newId,
+        userId: 'user' + this.newId,
         username: 'admin',
         password: '1337',
         todos: [
@@ -54,16 +54,16 @@ class UsersModel {
   async createUser(user: Omit<User, 'token' | 'userId'>) {
     const findedUser = this.#users.find((it) => it.username === user.username);
     if (findedUser) {
-      return { message: '', error: 'Username already in use' };
+      return false;
     }
     const newUser = {
-      userId: String(++this.#idCounter),
+      userId: 'user' + String(++this.#idCounter),
       ...user,
     };
     this.#users.push(newUser);
     console.log(this.#users);
 
-    return { message: newUser };
+    return newUser;
   }
 
   async findUserByName(username: string): Promise<User | undefined> {
