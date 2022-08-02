@@ -10,7 +10,7 @@ import { JwtModule } from '@nestjs/jwt';
   controllers: [AppController],
   providers: [AppService],
   imports: [
-    ConfigModule.forRoot({ envFilePath: '.env' }),
+    // ConfigModule.forRoot({ envFilePath: '.env' }),
     JwtModule.register({
       secret: process.env.SECRET || 'secret',
       signOptions: {
