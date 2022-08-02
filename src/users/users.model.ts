@@ -101,7 +101,7 @@ class UsersModel {
     return false;
   }
 
-  async updateTodo(userId, todo: Todo) {
+  async updateTodo(userId: string, todo: Todo) {
     const user = this.#users.find((u) => u.userId === userId);
     const index = user.todos.findIndex((t) => t.todoId === todo.todoId);
     user.todos[index] = todo;
