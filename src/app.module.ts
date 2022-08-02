@@ -17,10 +17,9 @@ import { JwtModule } from '@nestjs/jwt';
         expiresIn: '5m',
       },
     }),
-
+    AuthModule,
     UsersModule,
     TodosModule,
-    AuthModule,
   ],
 })
 export class AppModule {}
