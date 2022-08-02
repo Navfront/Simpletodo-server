@@ -1,8 +1,8 @@
 {
-  "name": "_s_simpletodo",
+  "name": "simpletodo-server",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "Navfront.ru",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
