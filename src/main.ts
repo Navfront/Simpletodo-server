@@ -7,7 +7,7 @@ async function start() {
 
   try {
     const app = await NestFactory.create(AppModule);
-
+    app.enableCors();
     const config = new DocumentBuilder()
       .setTitle('ToDo Server')
       .setDescription('NESTJS Server for my SimpleToDo app.')
