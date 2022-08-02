@@ -1,0 +1,1 @@
+{"version":3,"file":"get-todos-by-id.dto.js","sourceRoot":"","sources":["../../../src/todos/dto/get-todos-by-id.dto.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,qDAAmD;AAEnD,MAAa,YAAY;CAIxB;AADC;IAFC,IAAA,wBAAM,EAAC,CAAC,EAAE,EAAE,EAAE,EAAE,OAAO,EAAE,mCAAmC,EAAE,CAAC;IAC/D,IAAA,0BAAQ,EAAC,EAAE,OAAO,EAAE,qBAAqB,EAAE,CAAC;;4CACrB;AAH1B,oCAIC"}
