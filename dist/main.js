@@ -4,7 +4,7 @@ const core_1 = require("@nestjs/core");
 const swagger_1 = require("@nestjs/swagger");
 const app_module_1 = require("./app.module");
 async function start() {
-    const PORT = process.env.PORT || 8080;
+    const PORT = process.env.PORT || 5500;
     try {
         const app = await core_1.NestFactory.create(app_module_1.AppModule);
         app.enableCors();

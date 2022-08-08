@@ -23,9 +23,11 @@ let AuthController = class AuthController {
         this.authService = authService;
     }
     login(dto) {
+        console.log('log', dto);
         return this.authService.login(dto);
     }
     registration(dto) {
+        console.log('reg', dto);
         return this.authService.registration(dto);
     }
 };

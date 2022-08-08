@@ -13,6 +13,7 @@ export class AuthController {
   @UsePipes(ValidationPipe)
   @Post('/login')
   login(@Body() dto: CreateUserDto) {
+    console.log('log', dto);
     return this.authService.login(dto);
   }
 
@@ -20,6 +21,8 @@ export class AuthController {
   @UsePipes(ValidationPipe)
   @Post('/registration')
   registration(@Body() dto: CreateUserDto) {
+    console.log('reg', dto);
+
     return this.authService.registration(dto);
   }
 }
